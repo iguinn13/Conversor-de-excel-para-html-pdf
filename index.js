@@ -2,9 +2,11 @@ const Leitor = require('./Leitor');
 const Processador = require('./Processador');
 const Tabela = require('./Tabela');
 const HTMLParser = require('./HTMLParser');
+const Escritor = require('./Escritor');
 
 var arquivo = './dados.csv';
 var leitor = new Leitor();
+var escritor = new Escritor();
 
 async function main(){
     var dados = await leitor.Ler(arquivo);
@@ -14,7 +16,7 @@ async function main(){
 
     var html = await HTMLParser.Parse(pessoas);
 
-    console.log(html);
+    escritor.Escrever(Date.now() + '.html', html);
 }
 
 main();
