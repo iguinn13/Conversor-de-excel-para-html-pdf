@@ -1,6 +1,11 @@
 const Leitor = require('./Leitor');
 
 var arquivo = './dados.csv';
-
 var leitor = new Leitor();
-leitor.Ler(arquivo);
+
+async function main(){
+    var dados = await leitor.Ler(arquivo);
+    console.log(dados);
+}
+
+main();
